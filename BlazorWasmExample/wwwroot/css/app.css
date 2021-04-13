@@ -1,6 +1,7 @@
 ﻿html, body {
     background-color: #333333;
     color: #ffffff;
+    margin: 0;
 }
 
 a, .btn-link {

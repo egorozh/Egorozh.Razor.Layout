@@ -1,7 +1,11 @@
 ﻿@inherits LayoutComponentBase
 
-<Grid>
-    <GridChild>
+<Grid ColumnDefinitions="* auto *"
+      RowDefinitions="* auto *"
+      Height="100vh">
+
+    <GridChild Row="2"
+               Column="2">
         @Body
     </GridChild>
 </Grid>

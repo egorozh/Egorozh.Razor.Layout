@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31129.286
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorWasmExample", "BlazorWasmExample\BlazorWasmExample.csproj", "{43AF0AA5-BF04-4A24-B49E-A7B180E09AF9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazorWasmExample", "BlazorWasmExample\BlazorWasmExample.csproj", "{43AF0AA5-BF04-4A24-B49E-A7B180E09AF9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Egorozh.Razor.Layout", "Egorozh.Razor.Layout\Egorozh.Razor.Layout.csproj", "{382DB3C5-ACB5-480C-A3A5-E0A1038BD21E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Egorozh.Razor.Layout", "Egorozh.Razor.Layout\Egorozh.Razor.Layout.csproj", "{382DB3C5-ACB5-480C-A3A5-E0A1038BD21E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

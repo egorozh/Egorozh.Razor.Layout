@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31129.286
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorWasmExample", "BlazorWasmExample\BlazorWasmExample.csproj", "{43AF0AA5-BF04-4A24-B49E-A7B180E09AF9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Egorozh.Razor.Layout", "Egorozh.Razor.Layout\Egorozh.Razor.Layout.csproj", "{382DB3C5-ACB5-480C-A3A5-E0A1038BD21E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{43AF0AA5-BF04-4A24-B49E-A7B180E09AF9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{43AF0AA5-BF04-4A24-B49E-A7B180E09AF9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{43AF0AA5-BF04-4A24-B49E-A7B180E09AF9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{43AF0AA5-BF04-4A24-B49E-A7B180E09AF9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{382DB3C5-ACB5-480C-A3A5-E0A1038BD21E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{382DB3C5-ACB5-480C-A3A5-E0A1038BD21E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{382DB3C5-ACB5-480C-A3A5-E0A1038BD21E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{382DB3C5-ACB5-480C-A3A5-E0A1038BD21E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {4033745A-ED93-4903-AC44-5C42BDFA8C3A}
+	EndGlobalSection
+EndGlobal

@@ -1,4 +1,4 @@
-![Nuget](https://img.shields.io/nuget/v/Egorozh.Razor.Layout?label=Egorozh.Razor.Layout)
+[![Nuget](https://img.shields.io/nuget/v/Egorozh.Razor.Layout?label=Egorozh.Razor.Layout)](https://www.nuget.org/packages/Egorozh.Razor.Layout/)
 
 # Egorozh.Razor.Layout
 Blazor (Razor) layout based on CSS grid

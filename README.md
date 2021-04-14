@@ -1,9 +1,23 @@
+![Nuget](https://img.shields.io/nuget/v/Egorozh.Razor.Layout?label=Egorozh.Razor.Layout)
+
 # Egorozh.Razor.Layout
 Blazor (Razor) layout based on CSS grid
 
+## Getting Started
+
+Install the library as a NuGet package:
+```powershell
+Install-Package Egorozh.Razor.Layout
+# Or 'dotnet add package Egorozh.Razor.Layout'
+```
+Then, add using in _Imports.razor:
+```razor
+@using Egorozh.Razor.Layout
+```
+
 ## Example 
 ### (Made on the basis https://github.com/tomlm/BlazorCssGrid)
-```html
+```razor
 <Grid ColumnDefinitions="auto * auto"
       RowDefinitions="auto * auto"
       ItemMargin="10px"

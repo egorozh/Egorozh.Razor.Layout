@@ -41,7 +41,7 @@ namespace Egorozh.Razor.Layout
 
         private string GenerateStyle(string style)
         {
-            StringBuilder sb = new(style);
+            StringBuilder sb = new();
 
             sb.AddCssValue("display", "grid")
                 .AddCssValue("grid-template-columns", ReplaceStarToFr(ColumnDefinitions))
@@ -49,6 +49,8 @@ namespace Egorozh.Razor.Layout
                 .AddCssValue("width", Width)
                 .AddCssValue("height", Height)
                 .AddCssValue("gap", ItemMargin);
+
+            sb.Append(style);
 
             return sb.ToString();
         }

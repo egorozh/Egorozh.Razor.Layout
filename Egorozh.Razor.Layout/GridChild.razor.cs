@@ -52,7 +52,7 @@ namespace Egorozh.Razor.Layout
 
         private string GenerateStyle(string style)
         {
-            StringBuilder sb = new(style);
+            StringBuilder sb = new();
 
             sb.AddCssValue("width", Width)
                 .AddCssValue("height", Height)
@@ -63,6 +63,8 @@ namespace Egorozh.Razor.Layout
                 .AddCssValue("overflow-x", HorizontalScrollBar.ToCss())
                 .AddCssValue("overflow-y", VerticalScrollBar.ToCss())
                 .AddCssValue("border-color", BorderColor);
+
+            sb.Append(style);
 
             return sb.ToString();
         }

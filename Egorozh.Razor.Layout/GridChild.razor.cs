@@ -29,6 +29,12 @@ namespace Egorozh.Razor.Layout
 
         [Parameter] public HorizontalAlignment HorizontalAlignment { get; set; }
 
+        [Parameter] public ScrollBar HorizontalScrollBar { get; set; }
+
+        [Parameter] public ScrollBar VerticalScrollBar { get; set; }
+
+        [Parameter] public string BorderColor { get; set; } = "transparent";
+
         #endregion
 
         #region Protected Methods
@@ -53,7 +59,10 @@ namespace Egorozh.Razor.Layout
                 .AddCssValue("grid-column", GetColumnOrRow(Column, ColumnSpan))
                 .AddCssValue("grid-row", GetColumnOrRow(Row, RowSpan))
                 .AddCssValue("justify-self", HorizontalAlignment.ToCss())
-                .AddCssValue("align-self", VerticalAlignment.ToCss());
+                .AddCssValue("align-self", VerticalAlignment.ToCss())
+                .AddCssValue("overflow-x", HorizontalScrollBar.ToCss())
+                .AddCssValue("overflow-y", VerticalScrollBar.ToCss())
+                .AddCssValue("border-color", BorderColor);
 
             return sb.ToString();
         }

@@ -7,7 +7,7 @@
         Top,
 
         Bottom,
-        
+
         Center
     }
 }

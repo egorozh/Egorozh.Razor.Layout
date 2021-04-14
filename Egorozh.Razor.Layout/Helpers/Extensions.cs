@@ -56,6 +56,15 @@ namespace Egorozh.Razor.Layout
                 _ => ""
             };
 
+        public static string ToCss(this ScrollBar scrollBar) =>
+            scrollBar switch
+            {
+                ScrollBar.None => "hidden",
+                ScrollBar.Show => "scroll",
+                ScrollBar.Auto => "auto",
+                _ => "visible"
+            };
+
         public static StringBuilder AddCssValue(this StringBuilder builder, string name, string value)
         {
             builder.Append(name).Append(':').Append(value).Append(';');

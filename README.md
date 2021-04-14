@@ -16,7 +16,7 @@ Then, add using in _Imports.razor:
 ```
 
 ## Example 
-### (Made on the basis https://github.com/tomlm/BlazorCssGrid)
+(Made on the basis https://github.com/tomlm/BlazorCssGrid)
 ```razor
 <Grid ColumnDefinitions="auto * auto"
       RowDefinitions="auto * auto"

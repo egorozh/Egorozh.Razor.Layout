@@ -1,18 +1,12 @@
 ﻿using Microsoft.AspNetCore.Components;
 using System;
-using System.Collections.Generic;
 using System.Text;
 
 namespace Egorozh.Razor.Layout
 {
-    public partial class Grid
+    public class Grid : BaseDiv
     {
         #region Public Properties
-
-        [Parameter(CaptureUnmatchedValues = true)]
-        public Dictionary<string, object> InputAttributes { get; set; }
-
-        [Parameter] public RenderFragment ChildContent { get; set; }
 
         [Parameter] public string RowDefinitions { get; set; } = "*";
 
@@ -23,23 +17,12 @@ namespace Egorozh.Razor.Layout
         [Parameter] public string Height { get; set; } = "100%";
 
         [Parameter] public string ItemMargin { get; set; } = "0px";
-            
+
         #endregion
 
         #region Protected Methods
 
-        protected override void OnParametersSet()
-        {
-            InputAttributes = InputAttributes.InitializeInputAttributes(out var style);
-
-            InputAttributes.SetStyle(GenerateStyle(style));
-        }
-
-        #endregion
-
-        #region Private Methods
-
-        private string GenerateStyle(string style)
+        protected override string GenerateStyle(string style)
         {
             StringBuilder sb = new();
 
@@ -54,6 +37,10 @@ namespace Egorozh.Razor.Layout
 
             return sb.ToString();
         }
+
+        #endregion
+
+        #region Private Methods
 
         private static string ReplaceStarToFr(string input)
         {

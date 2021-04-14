@@ -1,17 +1,11 @@
 ﻿using Microsoft.AspNetCore.Components;
-using System.Collections.Generic;
 using System.Text;
 
 namespace Egorozh.Razor.Layout
 {
-    public partial class GridChild
+    public class GridChild : BaseDiv
     {
         #region Public Properties
-
-        [Parameter(CaptureUnmatchedValues = true)]
-        public Dictionary<string, object> InputAttributes { get; set; }
-
-        [Parameter] public RenderFragment ChildContent { get; set; }
 
         [Parameter] public string Width { get; set; } = "100%";
 
@@ -39,18 +33,7 @@ namespace Egorozh.Razor.Layout
 
         #region Protected Methods
 
-        protected override void OnParametersSet()
-        {
-            InputAttributes = InputAttributes.InitializeInputAttributes(out var style);
-
-            InputAttributes.SetStyle(GenerateStyle(style));
-        }
-
-        #endregion
-
-        #region Private Methods
-
-        private string GenerateStyle(string style)
+        protected override string GenerateStyle(string style)
         {
             StringBuilder sb = new();
 
@@ -68,6 +51,10 @@ namespace Egorozh.Razor.Layout
 
             return sb.ToString();
         }
+
+        #endregion
+
+        #region Private Methods
 
         private static string GetColumnOrRow(int columnOrRow, int columnOrRowSpan)
         {

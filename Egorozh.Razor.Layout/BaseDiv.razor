@@ -1,0 +1,22 @@
+﻿<div @attributes="@InputAttributes">
+    @ChildContent
+</div>
+
+@code {
+
+    [Parameter(CaptureUnmatchedValues = true)]
+    public Dictionary<string, object> InputAttributes { get; set; }
+
+    [Parameter]
+    public RenderFragment ChildContent { get; set; }
+
+    protected override void OnParametersSet()
+    {
+        InputAttributes = InputAttributes.InitializeInputAttributes(out var style);
+
+        InputAttributes.SetStyle(GenerateStyle(style));
+    }
+
+    protected virtual string GenerateStyle(string initStyle) => initStyle;
+
+}

@@ -16,7 +16,7 @@ namespace Egorozh.Razor.Layout
 
         [Parameter] public string Height { get; set; } = "100%";
 
-        [Parameter] public string ItemMargin { get; set; } = "0px";
+        [Parameter] public string ItemGap { get; set; } = "0px";
 
         #endregion
 
@@ -31,7 +31,7 @@ namespace Egorozh.Razor.Layout
                 .AddCssValue("grid-template-rows", ReplaceStarToFr(RowDefinitions))
                 .AddCssValue("width", Width)
                 .AddCssValue("height", Height)
-                .AddCssValue("gap", ItemMargin);
+                .AddCssValue("gap", ItemGap);
 
             sb.Append(style);
 
@@ -45,6 +45,9 @@ namespace Egorozh.Razor.Layout
         private static string ReplaceStarToFr(string input)
         {
             // "* auto *" -> "1fr auto 1fr"
+
+            if (!input.Contains("*"))
+                return input;
 
             var splits = input.Split(' ', StringSplitOptions.RemoveEmptyEntries);
 

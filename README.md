@@ -20,12 +20,12 @@ Then, add using in _Imports.razor:
 ```razor
 <Grid ColumnDefinitions="auto * auto"
       RowDefinitions="auto * auto"
-      ItemMargin="10px"
+      ItemGap="10px"
       Height="100vh">
 
     <GridChild Column="1"
-               BorderColor="pink"
-               class="grid-item">
+               class="grid-item"
+               style="border-color: pink">
         Row 1 Col 1
     </GridChild>
     <GridChild Column="2"
@@ -43,7 +43,7 @@ Then, add using in _Imports.razor:
                Column="1"
                ColumnSpan="3">
         <Grid ColumnDefinitions="auto * auto"
-              ItemMargin="10px"
+              ItemGap="10px"
               style="border-style: solid; padding: 10px; border-color: chartreuse;">
 
             <GridChild Column="1"

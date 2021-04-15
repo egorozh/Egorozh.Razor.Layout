@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Text;
 
 namespace Egorozh.Razor.Layout
@@ -6,7 +7,7 @@ namespace Egorozh.Razor.Layout
     internal static class Extensions
     {
         public static Dictionary<string, object> InitializeInputAttributes(this Dictionary<string, object> initInputs,
-            out string initStyle)
+            out Dictionary<string, string> initStyle)
         {
             if (initInputs != null)
             {
@@ -15,25 +16,22 @@ namespace Egorozh.Razor.Layout
                 if (initInputs.ContainsKey("style"))
                 {
                     style = (string) initInputs["style"];
-
-                    if (!style.EndsWith(";"))
-                        style += ";";
                 }
 
-                initStyle = style;
+                initStyle = ParseStyle(style);
                 return initInputs;
             }
 
-            initStyle = string.Empty;
+            initStyle = new Dictionary<string, string>();
             return new Dictionary<string, object>();
         }
 
-        public static void SetStyle(this Dictionary<string, object> inputAttributes, string style)
+        public static void SetStyle(this Dictionary<string, object> inputAttributes, Dictionary<string, string> style)
         {
             if (inputAttributes.ContainsKey("style"))
-                inputAttributes["style"] = style;
+                inputAttributes["style"] = style.ToCss();
             else
-                inputAttributes.Add("style", style);
+                inputAttributes.Add("style", style.ToCss());
         }
 
         public static string ToCss(this HorizontalAlignment horizontalAlignment) =>
@@ -65,11 +63,39 @@ namespace Egorozh.Razor.Layout
                 _ => "visible"
             };
 
-        public static StringBuilder AddCssValue(this StringBuilder builder, string name, string value)
+        public static string ToCss(this Dictionary<string, string> style)
         {
-            builder.Append(name).Append(':').Append(value).Append(';');
+            StringBuilder builder = new();
 
-            return builder;
+            foreach (var (key,value) in style) 
+                builder.Append(key).Append(':').Append(value).Append(';');
+
+            return builder.ToString();
+        }
+        
+        private static Dictionary<string, string> ParseStyle(string style)
+        {
+            var dict = new Dictionary<string, string>();    
+
+            var props = style.Split(new[] {';'}, StringSplitOptions.RemoveEmptyEntries);
+
+            foreach (var prop in props)
+            {
+                var keyValues = prop.Split(new[] {':'}, StringSplitOptions.RemoveEmptyEntries);
+
+                if (keyValues.Length == 2)
+                {
+                    var key = keyValues[0];
+                    var value = keyValues[1];
+
+                    if (dict.ContainsKey(key))
+                        dict[key] = value;
+                    else
+                        dict.Add(key, value);
+                }
+            }
+
+            return dict;
         }
     }
 }

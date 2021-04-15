@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Components;
 using System;
+using System.Collections.Generic;
 using System.Text;
 
 namespace Egorozh.Razor.Layout
@@ -22,20 +23,19 @@ namespace Egorozh.Razor.Layout
 
         #region Protected Methods
 
-        protected override string GenerateStyle(string style)
+        protected override Dictionary<string, string> GenerateStyle()
         {
-            StringBuilder sb = new();
+            Dictionary<string, string> endStyle = new()
+            {
+                {"display", "grid"},
+                {"grid-template-columns", ReplaceStarToFr(ColumnDefinitions)},
+                {"grid-template-rows", ReplaceStarToFr(RowDefinitions)},
+                {"width", Width},
+                {"height", Height},
+                {"gap", ItemGap},
+            };
 
-            sb.AddCssValue("display", "grid")
-                .AddCssValue("grid-template-columns", ReplaceStarToFr(ColumnDefinitions))
-                .AddCssValue("grid-template-rows", ReplaceStarToFr(RowDefinitions))
-                .AddCssValue("width", Width)
-                .AddCssValue("height", Height)
-                .AddCssValue("gap", ItemGap);
-
-            sb.Append(style);
-
-            return sb.ToString();
+            return endStyle;
         }
 
         #endregion

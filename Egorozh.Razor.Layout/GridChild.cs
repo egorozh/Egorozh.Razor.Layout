@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Components;
+﻿using System.Collections.Generic;
+using Microsoft.AspNetCore.Components;
 using System.Text;
 
 namespace Egorozh.Razor.Layout
@@ -33,23 +34,22 @@ namespace Egorozh.Razor.Layout
 
         #region Protected Methods
 
-        protected override string GenerateStyle(string style)
+        protected override Dictionary<string, string> GenerateStyle()
         {
-            StringBuilder sb = new();
+            Dictionary<string, string> endStyle = new()
+            {
+                {"width", Width},
+                {"height", Height},
+                {"grid-column", GetColumnOrRow(Column, ColumnSpan)},
+                {"grid-row", GetColumnOrRow(Row, RowSpan)},
+                {"justify-self", HorizontalAlignment.ToCss()},
+                {"align-self", VerticalAlignment.ToCss()},
+                {"overflow-x", HorizontalScrollBar.ToCss()},
+                {"overflow-y", VerticalScrollBar.ToCss()},
+                {"border-color", BorderColor},
+            };
 
-            sb.AddCssValue("width", Width)
-                .AddCssValue("height", Height)
-                .AddCssValue("grid-column", GetColumnOrRow(Column, ColumnSpan))
-                .AddCssValue("grid-row", GetColumnOrRow(Row, RowSpan))
-                .AddCssValue("justify-self", HorizontalAlignment.ToCss())
-                .AddCssValue("align-self", VerticalAlignment.ToCss())
-                .AddCssValue("overflow-x", HorizontalScrollBar.ToCss())
-                .AddCssValue("overflow-y", VerticalScrollBar.ToCss())
-                .AddCssValue("border-color", BorderColor);
-
-            sb.Append(style);
-
-            return sb.ToString();
+            return endStyle;
         }
 
         #endregion

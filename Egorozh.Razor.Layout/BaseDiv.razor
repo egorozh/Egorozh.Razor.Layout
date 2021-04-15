@@ -12,11 +12,21 @@
 
     protected override void OnParametersSet()
     {
-        InputAttributes = InputAttributes.InitializeInputAttributes(out var style);
+        InputAttributes = InputAttributes.InitializeInputAttributes(out var initStyle);
 
-        InputAttributes.SetStyle(GenerateStyle(style));
+        var propsStyle = GenerateStyle();
+
+        foreach (var (key,value) in initStyle)
+        {
+            if (propsStyle.ContainsKey(key))
+                propsStyle[key] = value;
+            else
+                propsStyle.Add(key, value);
+        }
+
+        InputAttributes.SetStyle(propsStyle);
     }
 
-    protected virtual string GenerateStyle(string initStyle) => initStyle;
+    protected virtual Dictionary<string, string> GenerateStyle() => new();
 
 }
